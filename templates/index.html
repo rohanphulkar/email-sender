@@ -1,0 +1,108 @@
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://img.icons8.com/external-tal-revivo-shadow-tal-revivo/512/external-django-a-high-level-python-web-framework-that-encourages-rapid-development-logo-shadow-tal-revivo.png"
+    />
+
+    <title>Email Sender</title>
+  </head>
+  <body>
+    <section class="bg-gray-50 min-h-screen">
+      <div class="px-4 py-20 mx-auto w-full md:max-w-xl">
+        <div class="mb-5">
+          <div
+            id="success-alert"
+            class="duration-300 hidden bg-teal-50 border border-teal-200 rounded-md p-4"
+            role="alert"
+          >
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg
+                  class="h-4 w-4 text-teal-400 mt-0.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="{16}"
+                  height="{16}"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="ml-3">
+                <div class="text-base text-gray-800 font-medium">
+                  Email has been sent.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Email form start -->
+        <form action="" method="POST">
+          {% csrf_token %}
+          <div class="mb-6">
+            <label
+              htmlFor="email"
+              class="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Email Address
+              <span class="text-red-600"> (You want to send email to) </span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="bg-gray-50 border border-gray-400 text-gray-900 text-sm rounded-lg block w-full focus:outline-none p-2.5"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              htmlFor="subject"
+              class="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Subject
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5"
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              htmlFor="message"
+              class="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Message
+            </label>
+            <textarea
+              type="text"
+              id="message"
+              name="message"
+              class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none block w-full p-2.5 h-72 md:h-48 resize-none"
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg w-full text-sm px-5 py-2.5 text-center"
+          >
+            Send
+          </button>
+        </form>
+        <!-- Email form end -->
+      </div>
+    </section>
+  </body>
+</html>
